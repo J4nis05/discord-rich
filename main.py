@@ -64,22 +64,22 @@ def set_buttons(b1_label, b1_url, b2_label, b2_url):
 
 def update_presence():
     RPC.update(
-        state=set_value(env['drp_state'], str),
-        details=set_value(env['drp_details'], str),
-        start=set_value(env['drp_start'], int),
-        end=set_value(env['drp_end'], int),
-        large_image=set_value(env['drp_large_image'], str),
-        large_text=set_value(env['drp_large_text'], str),
-        small_image=set_value(env['drp_small_image'], str),
-        small_text=set_value(env['drp_small_text'], str),
-        party_id=set_value(env['drp_party_id'], str),
-        party_size=set_party_size(env['drp_party_min'], env['drp_party_max']),
-        join=set_value(env['drp_join_hash'], str),
-        spectate=set_value(env['drp_spectate_hash'], str),
-        match=set_value(env['drp_match_hash'], str),
+        state=set_value(env['drp_state'], 'str'),
+        details=set_value(env['drp_details'], 'str'),
+        start=set_value(env['drp_start'], 'int'),
+        end=set_value(env['drp_end'], 'int'),
+        large_image=set_value(env['drp_large_img'], 'str'),
+        large_text=set_value(env['drp_large_txt'], 'str'),
+        small_image=set_value(env['drp_small_img'], 'str'),
+        small_text=set_value(env['drp_small_txt'], 'str'),
+        party_id=set_value(env['drp_party_id'], 'str'),
+        party_size=set_party_size(env['drp_party_size'], env['drp_party_max']),
+        #join=set_value(env['drp_join_hash'], 'str'),
+        #spectate=set_value(env['drp_spectate_hash'], 'str'),
+        #match=set_value(env['drp_match_hash'], 'str'),
         buttons=set_buttons(env['drp_button1_label'], env['drp_button1_url'],
                             env['drp_button2_label'], env['drp_button2_url']),
-        instance=set_value(env['drp_instance'], bool)
+        instance=set_value(env['drp_instance'], 'bool')
     )
 
 
@@ -98,7 +98,7 @@ def main():
                 return
 
 
-env = load_env('sample.env')
+env = load_env('.env')
 
 RPC = Presence(env['app_id'])
 print('Setting Application ID ... ')
